@@ -34,3 +34,11 @@ logging sync
 
 !ponerle un mensaje al banner
 banner motd #Esta entrando al Switch Secundaria 4, debe de tener autorizacion para acceder a este dispositivo, de lo contrario podemos tomar acciones legales en su contra#
+
+!Interface Vlan1
+interface vlan 1
+ip address 172.16.50.250 255.255.255.0
+no shut
+
+
+ip default-gateway 172.16.50.254
