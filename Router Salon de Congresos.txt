@@ -1,0 +1,61 @@
+!-------- Router Salon de Congresos --------
+
+! Entrar al modo EXEC
+enable
+
+!configuracion de dispositivos y caracteristicas
+configure terminal
+
+!asignar un nobre al router
+hostname R-Salon-Congresos
+
+!evitar un error 
+no ip domain-lookup
+
+!encriptar contraseñas
+service password-encryption
+
+
+!ponerle una segunda contraseña
+enable secret class
+
+
+! Establece password a line console 0
+line console 0
+password Cisco
+login
+logging sync
+
+! Establece password a line vty 0 4
+line vty 0 4
+password Cisco
+login
+logging sync
+
+!ponerle un mensaje al banner
+banner motd #Esta entrando al Router de Salon de Congresos, debe de tener autorizacion para acceder a este dispositivo, de lo contrario podemos tomar acciones legales en su contra#
+
+!Configuración de interfaces
+interface G0/0/0
+description "Interfaz GigaEthernet 0/0"
+ip add 172.16.50.254 255.255.255.0
+no shutdown
+exit
+
+interface G0/0/1
+description "Interfaz GigaEthernet 0/1"
+ip add 172.16.51.254 255.255.255.0
+no shutdown
+exit
+
+interface S0/1/0
+description "Interfaz Serial 0/1/0"
+ip add 172.16.52.162 255.255.255.252
+no shutdown
+exit
+
+interface S0/1/1
+description "Interfaz Serial 0/1/1"
+ip add 172.16.52.165 255.255.255.252
+no shutdown
+exit
