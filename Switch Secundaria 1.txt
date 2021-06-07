@@ -1,4 +1,4 @@
-!-------- Switch Explanada Borregos --------
+!-------- Switch Secundaria 1 --------
 
 ! Entrar al modo EXEC
 enable
