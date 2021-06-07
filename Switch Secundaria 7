@@ -1,0 +1,36 @@
+!-------- Switch Explanada Borregos --------
+
+! Entrar al modo EXEC
+enable
+
+!configuracion de dispositivos y caracteristicas
+configure terminal
+
+!asignar un nobre al router
+hostname S-Secundaria-7
+
+!evitar un error 
+no ip domain-lookup
+
+!encriptar contraseñas
+service password-encryption
+
+
+!ponerle una segunda contraseña
+enable secret class
+
+
+! Establece password a line console 0
+line console 0
+password Cisco
+login
+logging sync
+
+! Establece password a line vty 0 15
+line vty 0 15
+password Cisco
+login
+logging sync
+
+!ponerle un mensaje al banner
+banner motd #Esta entrando al Switch Secundaria 7, debe de tener autorizacion para acceder a este dispositivo, de lo contrario podemos tomar acciones legales en su contra#
