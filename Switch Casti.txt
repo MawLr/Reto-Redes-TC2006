@@ -1,4 +1,4 @@
-!-------- Switch Explanada Borregos --------
+!-------- Switch Casti --------
 
 ! Entrar al modo EXEC
 enable
