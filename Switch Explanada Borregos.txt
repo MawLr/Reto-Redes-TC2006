@@ -41,4 +41,4 @@ ip address 172.16.52.157 255.255.255.224
 no shut
 
 
-ip default-getaway 172.16.52.158
+ip default-gateway 172.16.52.158
