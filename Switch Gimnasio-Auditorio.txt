@@ -1,4 +1,4 @@
-!-------- Switch Explanada Borregos --------
+!-------- Switch Gimnasio-Auditorio --------
 
 ! Entrar al modo EXEC
 enable
@@ -34,3 +34,11 @@ logging sync
 
 !ponerle un mensaje al banner
 banner motd #Esta entrando al Switch Gimnasio/Auditorio, debe de tener autorizacion para acceder a este dispositivo, de lo contrario podemos tomar acciones legales en su contra#
+
+!Interface Vlan1
+interface vlan 1
+ip address 172.16.51.253 255.255.255.0
+no shut
+
+
+ip default-getaway 172.16.51.254
