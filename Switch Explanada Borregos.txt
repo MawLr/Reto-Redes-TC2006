@@ -1,4 +1,4 @@
-!-------- Switch Explanada Borregos --------
+!-------- Switch Gimnasio-Auditorio --------
 
 ! Entrar al modo EXEC
 enable
@@ -7,7 +7,7 @@ enable
 configure terminal
 
 !asignar un nobre al router
-hostname S-Explanada
+hostname S-Gimnasio-Auditorio
 
 !evitar un error 
 no ip domain-lookup
@@ -33,4 +33,13 @@ login
 logging sync
 
 !ponerle un mensaje al banner
-banner motd #Esta entrando al Switch Explanada Borregos, debe de tener autorizacion para acceder a este dispositivo, de lo contrario podemos tomar acciones legales en su contra#
+banner motd #Esta entrando al Switch Gimnasio/Auditorio, debe de tener autorizacion para acceder a este dispositivo, de lo contrario podemos tomar acciones legales en su contra#
+
+!Interface Vlan1
+interface vlan 1
+ip address 172.16.51.253 255.255.255.0
+no shut
+
+
+ip default-getaway 172.16.51.254
+
