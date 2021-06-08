@@ -35,6 +35,21 @@ logging sync
 !ponerle un mensaje al banner
 banner motd #Esta entrando al Router de Salon de Congresos, debe de tener autorizacion para acceder a este dispositivo, de lo contrario podemos tomar acciones legales en su contra#
 
+!---- Creación de los DHCP
+ip  dhcp  pool  Gimansio
+network  172.16.51.0  255.255.255.0
+default-router   172.16.51.254
+DNS-server 8.8.8.8
+
+ip  dhcp  pool  SCongresos
+network  172.16.50.0  255.255.255.0
+default-router   172.16.50.254
+DNS-server 8.8.8.8
+
+ip dhcp excluded-address 172.16.50.253 172.16.50.254
+
+ip dhcp excluded-address 172.16.51.253 172.16.51.254
+
 !Configuración de interfaces
 interface G0/0/0
 description "Interfaz GigaEthernet 0/0"

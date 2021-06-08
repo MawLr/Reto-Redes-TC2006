@@ -35,6 +35,15 @@ logging sync
 !ponerle un mensaje al banner
 banner motd #Esta entrando al Router de Explanada Borregos, debe de tener autorizacion para acceder a este dispositivo, de lo contrario podemos tomar acciones legales en su contra#
 
+!---- Creación de los DHCP
+ip  dhcp  pool  SExplanada
+network  172.16.52.128  255.255.255.224
+default-router   172.16.52.158
+DNS-server 8.8.8.8
+
+ip dhcp excluded-address 172.16.52.157 172.16.52.158
+
+
 !Configuración de interfaces
 interface G0/0/0
 description "Interfaz GigaEthernet 0/0"
