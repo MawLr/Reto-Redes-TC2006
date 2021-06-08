@@ -60,4 +60,19 @@ exit
 interface S0/1/0
 description "Interfaz Serial 0/1/0"
 ip add 172.16.52.161 255.255.255.252
+clock rate 128000
 no shutdown
+
+! En el modo de configuración de la terminal debemos definir el protocolo y un ID asociado
+router ospf 2021
+! Agregar las redes/subredes directamente conectadas que se desean anunciar
+network  172.16.52.128 0.0.0.31  area 0
+network 172.16.52.160 0.0.0.3 area 0
+
+! Es recomendable que las interfaces de router que NO interconectan más routers sean configuradas como pasivas.
+passive-interface  g0/0/0
+passive-interface  g0/0/1
+
+! Este comando sólo aplica al Router Frontera.
+! Debemos propagar la ruta por default que sólo el Router Frontera define
+default-information   originate

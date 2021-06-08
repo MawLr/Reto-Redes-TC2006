@@ -97,3 +97,17 @@ default-router   172.16.49.254
 dns-server   8.8.8.8
 
 ip dhcp excluded-address 172.16.49.253 172.16.49.254
+
+! En el modo de configuración de la terminal debemos definir el protocolo y un ID asociado
+router ospf 2021
+! Agregar las redes/subredes directamente conectadas que se desean anunciar
+network  172.16.52.0 0.0.0.63  area 0
+network  172.16.52.64 0.0.0.63  area 0
+network  172.16.48.0 0.0.1.255  area 0
+network 172.16.52.164 0.0.0.3 area 0
+network 172.16.52.168 0.0.0.3 area 0
+
+
+! Es recomendable que las interfaces de router que NO interconectan más routers sean configuradas como pasivas.
+passive-interface  g0/0/0
+passive-interface  g0/0/1
