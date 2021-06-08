@@ -46,11 +46,11 @@ name  Entrenadores
 ! Asignación de puertos a la VLAN  VID
 interface range F0/1
 switchport mode access
-switchport access vlan  10
+switchport access vlan  20
 
 interface range G0/2
 switchport mode access
-switchport access vlan  20
+switchport access vlan  10
 
 ! Definición del o los puertos TRUNK
 interface  g0/1

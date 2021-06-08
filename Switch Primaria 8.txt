@@ -37,7 +37,7 @@ banner motd #Esta entrando al Switch Primaria 8, debe de tener autorizacion para
 
 !Interface Vlan1
 interface vlan 1
-ip address 172.16.49.246 255.255.254.0
+ip address 172.16.49.245 255.255.254.0
 no shut
 
 

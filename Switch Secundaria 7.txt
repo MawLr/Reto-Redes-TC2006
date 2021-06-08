@@ -37,7 +37,7 @@ banner motd #Esta entrando al Switch Secundaria 7, debe de tener autorizacion pa
 
 !Interface Vlan1
 interface vlan 1
-ip address 172.16.50.247 255.255.255.0
+ip address 172.16.50.246 255.255.255.0
 no shut
 
 

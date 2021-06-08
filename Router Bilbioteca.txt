@@ -59,24 +59,24 @@ no shutdown
 exit
 
 !Sección para crear las subinterfaces asociadas a cada VLAN
-int g0/1.1
+int g0/0/1.1
 description VLAN router-switch
 encapsulation  dot1q  1
 ip address  172.16.52.170 255.255.255.252
 
-int g0/1.10
+int g0/0/1.10
 description VLAN de Prensa
 encapsulation  dot1q  10
 ip address  172.16.52.126 255.255.255.192
 
-int g0/1.20
+int g0/0/1.20
 description VLAN de Entrenadores
 encapsulation  dot1q  20
 ip address  172.16.52.62 255.255.255.192
 
 
 !Al final, hay que activar la interfaz física correspondiente
-int g0/1
+int g0/0/1
 no shutdown
 
 
