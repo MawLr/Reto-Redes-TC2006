@@ -49,15 +49,6 @@ no shutdown
 exit
 
 
-!----duda VLAN
-!---- checar ip address
-!Configuracion de interfaces
-interface g0/0/0
-description Interfaz con el ISP
-ip address 192.168.1.7 255.255.255.0 
-no shutdown
-exit
-
 !Sección para crear las subinterfaces asociadas a cada VLAN
 int g0/0/0.1
 description VLAN router-switch

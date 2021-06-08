@@ -76,3 +76,6 @@ passive-interface  g0/0/1
 ! Este comando sólo aplica al Router Frontera.
 ! Debemos propagar la ruta por default que sólo el Router Frontera define
 default-information   originate
+
+!Ruta por default al ISP 
+ip route 0.0.0.0 0.0.0.0 g0/0/0
