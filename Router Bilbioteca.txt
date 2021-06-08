@@ -50,8 +50,43 @@ exit
 
 
 !----duda VLAN
-interface G0/0
-description "Interfaz GigaEthernet 0/0"
-ip add 172.16.50.254 255.255.255.0
+!---- checar ip address
+!Configuracion de interfaces
+interface g0/0/0
+description Interfaz con el ISP
+ip address 192.168.1.7 255.255.255.0 
 no shutdown
 exit
+
+!Sección para crear las subinterfaces asociadas a cada VLAN
+int g0/1.1
+description VLAN router-switch
+encapsulation  dot1q  1
+ip address  172.16.52.170 255.255.255.252
+
+int g0/1.10
+description VLAN de Prensa
+encapsulation  dot1q  10
+ip address  172.16.52.126 255.255.255.192
+
+int g0/1.20
+description VLAN de Entrenadores
+encapsulation  dot1q  20
+ip address  172.16.52.62 255.255.255.192
+
+
+!Al final, hay que activar la interfaz física correspondiente
+int g0/1
+no shutdown
+
+
+!Creacion DCHPs
+ip  dhcp  pool  Prensa
+network  172.16.52.64 255.255.255.192
+default-router   172.16.52.126
+dns-server   8.8.8.8
+
+ip  dhcp  pool  Entrenadores
+network  172.16.52.0 255.255.255.192
+default-router   172.16.52.62
+dns-server   8.8.8.8

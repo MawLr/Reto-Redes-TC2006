@@ -1,0 +1,65 @@
+!-------- Switch Biblioteca --------
+
+! Entrar al modo EXEC
+enable
+
+!configuracion de dispositivos y caracteristicas
+configure terminal
+
+!asignar un nobre al router
+hostname S-Biblioteca
+
+!evitar un error 
+no ip domain-lookup
+
+!encriptar contraseñas
+service password-encryption
+
+
+!ponerle una segunda contraseña
+enable secret class
+
+
+! Establece password a line console 0
+line console 0
+password Cisco
+login
+logging sync
+
+! Establece password a line vty 0 15
+line vty 0 15
+password Cisco
+login
+logging sync
+
+!ponerle un mensaje al banner
+banner motd #Esta entrando al Switch Biblioteca, debe de tener autorizacion para acceder a este dispositivo, de lo contrario podemos tomar acciones legales en su contra#
+
+! Creación de las VLANs con nombre.  
+
+vlan  10
+name  Prensa
+vlan  20
+name  Entrenadores
+
+
+! Asignación de puertos a la VLAN  VID
+interface range F0/1
+switchport mode access
+switchport access vlan  10
+
+interface range G0/2
+switchport mode access
+switchport access vlan  20
+
+! Definición del o los puertos TRUNK
+interface  g0/1
+switchport mode trunk
+no shutdown
+
+!----checar esto
+interface vlan 1
+ip address 172.16.52.170 255.255.255.252
+no shutdown
+
+ip default-gateway 172.16.52.169

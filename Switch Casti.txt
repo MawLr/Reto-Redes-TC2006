@@ -6,6 +6,10 @@ enable
 !configuracion de dispositivos y caracteristicas
 configure terminal
 
+!---asignar vlan 20
+vlan 20
+name Entrenadores
+
 !asignar un nobre al router
 hostname S-Casti
 
@@ -18,6 +22,22 @@ service password-encryption
 
 !ponerle una segunda contraseña
 enable secret class
+
+
+!Asignacion de puertos de la VLAN 10
+interface range F0/1-24, g0/1-2
+switchport mode access
+switchport access vlan 20
+
+!----checar esto
+!Para que el switch sea gestionable, necesitamos una IP
+interface vlan 20
+description Interfaz de Entrenadores
+ip address 172.16.52.61 255.255.255.192
+no shutdown
+
+!-----
+ip default-gateway 172.16.52.62
 
 
 ! Establece password a line console 0
