@@ -59,7 +59,7 @@ no shutdown
 
 !----checar esto
 interface vlan 1
-ip address 172.16.52.170 255.255.255.252
+ip address 172.16.52.169 255.255.255.252
 no shutdown
 
-ip default-gateway 172.16.52.169
+ip default-gateway 172.16.52.170
